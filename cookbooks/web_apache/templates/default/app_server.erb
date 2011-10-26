@@ -29,7 +29,7 @@
   RewriteRule ^.*$ /system/maintenance.html [L]
 
   # Setup the logs in the appropriate directory
-  CustomLog <%= node[:apache][:log_dir] %>/access_log combined
+  CustomLog <%= node[:apache][:log_dir] %>/custom_access_log combined
   ErrorLog  <%= node[:apache][:log_dir] %>/error_log
 
   #Remote logging -- handle by syslog
