@@ -5,6 +5,15 @@
     Deny from all
   </DirectoryMatch>
 
+  <Location /dblist.php>
+    Allow from all
+    AllowOverride AuthConfig
+    AuthType Basic
+    AuthName "By Invitation Only"
+    AuthUserFile /etc/httpd/passwords
+    Require valid-user
+ </Location>
+
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
     AllowOverride None
