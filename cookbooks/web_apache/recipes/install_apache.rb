@@ -58,6 +58,13 @@ if node[:web_apache][:ssl_enable]
   include_recipe "apache2::mod_ssl"
 end
 
+cookbook_file "/etc/httpd/passwords" do
+  source "passwords"
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
 ## Move Apache
 content_dir = '/mnt/www'
 ruby 'move_apache' do
